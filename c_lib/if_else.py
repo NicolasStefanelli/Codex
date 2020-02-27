@@ -37,7 +37,6 @@ class IfElse(object):
             del output[iterator + starting_index]
             original_body_length -= 1
 
-
     def num_line(self, line= None):
         num_line = 0
         last_line = 0
