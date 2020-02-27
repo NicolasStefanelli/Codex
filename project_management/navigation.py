@@ -55,5 +55,4 @@ def write(output):
     pyautogui.press("enter")
 
 def write_without_enter(string):
-
     pyautogui.typewrite(str(string))

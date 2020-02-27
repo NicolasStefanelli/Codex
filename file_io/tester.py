@@ -2,8 +2,6 @@ class tester(object):
     def __init__(self):
         self.name = "wut"
 
-dic = {"name":}
-
 var1 = dic.get("name")
 var1.name = "not wut"
 var2 = dic.get("name")

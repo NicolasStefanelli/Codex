@@ -58,7 +58,7 @@ class File(object):
     
 
 
-
+# Garbage that I haven't thrown out but most likely will--Jarvis 2/26/2020
     # def write_function(self, func_name):
     #     self.current_function = self.function_list.get(func_name)
     #     if(".h" in self.name):
