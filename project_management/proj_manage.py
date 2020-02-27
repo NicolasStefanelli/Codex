@@ -11,7 +11,7 @@ class Project(object):
         self.num_file = 0
         self.cur_file = None
         self.file_dict = {}
-        os.system("mkdir " + self.work_path)
+        os.system("md " + self.work_path)
         open_apps.open_vscode(path)
 
     def open_file(self, filename):
@@ -28,8 +28,8 @@ class Project(object):
 
     def create_new_file(self, filename):
         self.num_file += 1
-        os.system("touch " + self.current_directory + "/" + filename)
-        new_file_path = self.current_directory + "/" + filename
+        os.system("type nul > " + self.current_directory + "\\" + filename)
+        new_file_path = self.current_directory + "\\" + filename
         new_file = files.File(filename, new_file_path)
         self.file_dict.update({filename:new_file})
 

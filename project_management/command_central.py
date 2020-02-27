@@ -15,7 +15,7 @@ class CommandCentral(object):
 
     def add_file(self, filename):
         self.project.create_new_file(filename)
-        self.project.open_file(filename)
+        # self.project.open_file(filename)
         self.current_file = self.project.return_file(filename)
     
     def clear_file(self):
