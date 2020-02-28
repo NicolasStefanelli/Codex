@@ -16,8 +16,7 @@ class Include(object):
         self.num_of_std_includes -= 1
 
     def generate_output(self, output, starting_index):
-        while(len(output) <= starting_index + self.num_of_std_includes):
-            output.append("")
+        print(self.std_include_list)
         index = 0
         for token in self.std_include_list:
             token = "#include <" + token + ">"

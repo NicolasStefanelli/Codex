@@ -1,3 +1,11 @@
+"""
+    Author:Jarvis Lu
+    Date: 2/27/2020
+
+    This file contains some parsed interfereces for easier usage of pyautogui.
+Given the situation it might not be nesscary to use pyautogui so this file would
+not receive further support
+"""
 import pyautogui
 
 def keyDown(lst):
