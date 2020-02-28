@@ -31,5 +31,5 @@ class Variable(object):
             temp_out += ";"
         output.insert(index, temp_out)
 
-    def num_line(self):
+    def return_num_lines(self):
         return 1

@@ -1,16 +1,5 @@
-# class tester(object):
-#     def __init__(self):
-#         self.name = "wut"
+Unix_command = {"directory":"mkdir", "file":"touch", "slash":"/"}
+windows_prompt = {"directory":"md", "file":"type null >", "slash":"\\"}
+command_set = {"Darwin": Unix_command, "Windows":windows_prompt}
 
-# var1 = dic.get("name")
-# var1.name = "not wut"
-# var2 = dic.get("name")
-# print(var1)
-# print(var2)
-# print(var1.name + var2.name)
-# print(add())
-# print(add())
-# wut = tester()
-# print(wut)
-# wut2 = tester()
-# print(wut2)
+print(command_set.get("Windows").get("directory") + " wut")

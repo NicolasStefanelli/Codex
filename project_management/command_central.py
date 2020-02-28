@@ -4,13 +4,14 @@ from c_lib import files
 import time
 
 class CommandCentral(object):
-    def __init__(self):
+    def __init__(self, platform):
+        self.platform = platform
         self.project = None
         self.language = None
         self.last_command = None
 
     def create_new_project(self, work_space_path):
-        self.project = proj_manage.Project(work_space_path)
+        self.project = proj_manage.Project(work_space_path, self.platform)
         time.sleep(1)
 
     def add_file(self, filename):

@@ -62,7 +62,7 @@ class Func(object):
         num_line = 0
         last_line = 0
         for token in self.actions:
-            num_line += token.num_line()
+            num_line += token.return_num_lines()
             if(line != None):
                 if(line <= num_line + 1 and line >= last_line + 1):
                     return token

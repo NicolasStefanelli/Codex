@@ -25,5 +25,5 @@ class Calls(object):
         temp_out += ");"
         output.append(temp_out)
         
-    def num_line(self):
+    def return_num_lines(self):
         return 1
