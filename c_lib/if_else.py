@@ -1,3 +1,13 @@
+"""
+    Author:Jarvis Lu
+    Date: 2/27/2020
+
+    This file contains the IfElse class. This class can be used to implement 
+if else statements within the file.
+
+    TODO finish the IfElse class
+
+"""
 
 class IfElse(object):
     def __init__(self):

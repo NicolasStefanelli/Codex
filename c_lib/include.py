@@ -1,4 +1,19 @@
+"""
+    Author:Jarvis Lu
+    Date: 3/1/2020
 
+    This file contains the Include class. Use this class for user define
+and standard library include. 
+"""
+
+""" 
+    Initialization of the include class
+
+    @instance num_of_std_includes how many includes from the standard library within this file
+    @instance num_of_user_def_includes numbers of user defined libraries (such as main.h)
+    @instance std_include_list list containing the standard includes
+    @instance std_user_def_list list of all user defined external libraries 
+"""
 class Include(object):
     def __init__(self):
         self.num_of_std_includes = 0
@@ -6,15 +21,35 @@ class Include(object):
         self.std_include_list = []
         self.std_user_def_list = []
 
-    def add_std_include(self, string, output, starting_index):
-        self.std_include_list.append(string)
+    """ 
+        Add a standard include to the class. The output of this class
+    will be generated based on the includes within the class
+        @param name name of the function to be added
+        @param output the output of the file passed in for this class to 
+            add content
+        @param starting_index the index where the information will be placed
+    """  
+    def add_std_include(self, name, output, starting_index):
+        self.std_include_list.append(name)
         self.generate_output(output, starting_index)
         self.num_of_std_includes += 1
 
-    def remove_std_include(self, str):
-        del self.std_include_list[str]
+    """ 
+        Remove an existing include withing the class
+        @param name name of the function to be added
+    """  
+    def remove_std_include(self, name):
+        del self.std_include_list[name]
         self.num_of_std_includes -= 1
 
+
+    """ 
+        Generates the output based content within this class and place the 
+    information within the output of the file so it could be printed later
+        @param output the output of the file passed in for this class to 
+            add content
+        @param starting_index the index where the information will be placed
+    """  
     def generate_output(self, output, starting_index):
         print(self.std_include_list)
         index = 0
@@ -22,21 +57,12 @@ class Include(object):
             token = "#include <" + token + ">"
             output.insert(starting_index + index, token)
             index += 1
-        
-        # user_def_output = self.std_user_def_list.keys()
-        # for tokens in user_def_output:
-        #     lines.append(self.std_user_def_list.get(tokens))
-        #     tokens = "#include \"" + tokens + "\""
         return output
 
+
+    """ 
+        Returns teh number of lines this class would be taking up
+    """  
     def return_num_lines(self):
         return self.num_of_std_includes + self.num_of_user_def_includes + 1
-
-    # def add_user_def_list(self, str, bool):
-    #     self.std_user_def_list.update({str:self.std_start + self.num_of_std_includes + 1})
-    #     self.num_of_user_def_includes += 1
-
-    # def remove_user_def_list(self, str, bool):
-    #     del self.std_user_def_list[str]
-    #     self.num_of_std_includes -= 1
 
