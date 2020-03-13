@@ -12,7 +12,8 @@ import fileinput
 import platform
 
 command = command_central.CommandCentral(platform.system())
-command.create_new_project(["Desktop", "test2"])
+#disable can be passed in to not add Onedrive if not desired
+command.create_new_project(["Desktop", "test2","disable"])
 # print("Please select a number:")
 # computer_type = input("Please select your operating system:\n (1) Mac\n (2) Windows\n")
 

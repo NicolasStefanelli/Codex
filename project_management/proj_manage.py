@@ -59,7 +59,7 @@ class Project(object):
     """
     def get_work_path(self, path):
         work_path = expanduser("~")
-        if os.path.exists(work_path + self.command.get("slash") + "Onedrive"):
+        if os.path.exists(work_path + self.command.get("slash") + "Onedrive") and path.count("disable") == 0:
             work_path = work_path + self.command.get("slash") + "Onedrive"
         for item in path:
             work_path = work_path + self.command.get("slash") + item
