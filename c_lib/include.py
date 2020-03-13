@@ -51,7 +51,6 @@ class Include(object):
         @param starting_index the index where the information will be placed
     """  
     def generate_output(self, output, starting_index):
-        print(self.std_include_list)
         index = 0
         for token in self.std_include_list:
             token = "#include <" + token + ">"
