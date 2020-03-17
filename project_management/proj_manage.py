@@ -10,6 +10,7 @@ from .import navigation
 from c_lib import files
 import pyautogui
 import os
+from os.path import expanduser
 from open_app import open_apps
 
 """ 
@@ -22,6 +23,8 @@ command_set = {"Darwin": Unix_command, "Windows":windows_prompt}
 
 """ 
     Initialization of the Project class
+    TODO Update current directory to accurately reflect the directory that
+the user is actually in
 
     @param path the current work path of this project
     @param platform the platform of the device
@@ -34,17 +37,34 @@ command_set = {"Darwin": Unix_command, "Windows":windows_prompt}
 """
 class Project(object):
     def __init__(self, path, platform):
-        self.work_path = path
-        self.current_directory = path
+        self.work_path = None
+        self.current_directory = None
         self.num_file = 0
         self.current_file = None
         self.file_dict = {}
         self.command = command_set.get(platform)
-        
+        self.get_work_path(path)
+
         #creates the project directory
         os.system(self.command.get("directory") + self.work_path)
         #open the directory with vs code
-        open_apps.open_vscode(path)
+        open_apps.open_vscode(self.work_path)
+
+    """ 
+        This function can be used to generate the correct path based on the 
+    the plaform and checks whether Onedrive backup is set up. Can add additional
+    cases to check for in the future in this function
+        @param path The path passed in from the user. Passed in as a list of the name
+            of the directories to change into.
+    """
+    def get_work_path(self, path):
+        work_path = expanduser("~")
+        if os.path.exists(work_path + self.command.get("slash") + "Onedrive") and path.count("disable") == 0:
+            work_path = work_path + self.command.get("slash") + "Onedrive"
+        for item in path:
+            work_path = work_path + self.command.get("slash") + item
+        self.work_path = work_path
+        self.current_directory = work_path
 
     """ 
         Open a specific file using pyautogui, might delete

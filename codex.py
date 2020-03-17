@@ -9,23 +9,22 @@ since voice recongization haven't been implemented
 from project_management import command_central
 import time
 import fileinput
-from os.path import expanduser
 import platform
 
-home = expanduser("~")
-
 command = command_central.CommandCentral(platform.system())
-print("Please select a number:")
-computer_type = input("Please select your operating system:\n (1) Mac\n (2) Windows\n")
+#disable can be passed in to not add Onedrive if not desired
+command.create_new_project(["Desktop", "test2","disable"])
+# print("Please select a number:")
+# computer_type = input("Please select your operating system:\n (1) Mac\n (2) Windows\n")
 
-if int(computer_type) == 1:
-    command.create_new_project(home + "/Desktop/test")
-else:
-    save_type = input("Would you like to save this document to OneDrive?\n (1) Yes\n (2) No\n")
-    if int(save_type) == 1:
-        command.create_new_project(home + "\\OneDrive\\Desktop\\test")
-    else:
-        command.create_new_project(home + "\\Desktop\\test")
+# if int(computer_type) == 1:
+#     command.create_new_project(home + "/Desktop/test")
+# else:
+#     save_type = input("Would you like to save this document to OneDrive?\n (1) Yes\n (2) No\n")
+#     if int(save_type) == 1:
+#         command.create_new_project(home + "\\OneDrive\\Desktop\\test")
+#     else:
+#         command.create_new_project(home + "\\Desktop\\test")
 
 command.add_file("hello_world.c")
 command.add_include("stdio.h")

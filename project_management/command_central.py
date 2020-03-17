@@ -12,6 +12,7 @@ This will serve as a bridge between voice recoginizer and the file_i/o
 from .import proj_manage
 from file_io import writer
 from c_lib import files
+from os.path import expanduser
 import time
 
 """ 
@@ -32,7 +33,8 @@ class CommandCentral(object):
 
     """ 
         Create a new Project class object
-        @param work_space_path where the user would want the project be located on their computer
+        @param work_space_path The path passed in from the user. Passed in as a list of the name
+            of the directories to change into.
     """
     def create_new_project(self, work_space_path):
         self.project = proj_manage.Project(work_space_path, self.platform)
