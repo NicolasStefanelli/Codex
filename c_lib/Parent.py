@@ -1,36 +1,26 @@
-"""
-    Author:Jarvis Lu
-    Date: 2/27/2020
+# parent abstract class used by other classes that utilize return_current_action, 
+# return_modified statement, and num_line
+# for more information on how to create abstract classes in python, the following videos may help:
+# https://www.youtube.com/watch?v=PDMe3wgAsWg and https://www.youtube.com/watch?v=rOaRMW8jYOo
 
-    This file contains the IfElse class. This class can be used to implement 
-if else statements within the file.
+# Rylee Bers 3/18/2020
 
-    TODO finish the IfElse class
+from abc import ABC, abstractmethod
 
-"""
-
-class IfElse(object):
-    def __init__(self):
-        self.variable_list = []
-        self.argument_list = []
-        self.call_list = []
-        self.body = []
-        self.actions = []
-        self.current_action = None
-
+class Parent(ABC):
+    # Do we create an __init__ method fro abstract classes???
+    # self.current_action = None
+    # self.body = []
+    
+    @abstractmethod
     def return_current_action(self, line= None):
         if line != None:
             self.current_action = self.num_line(line)
         return self.current_action
 
-    def generate_output(self):
-        output = "if("
-        for token in self.argument_list:
-            output += token + " "
-        output += "){"
-        return output
 
     def return_modified_statement(self, output, starting_index, original_body_length):
+        @abstractmethod
         self.body.append(self.generate_output())
         cur_body_len = len(self.body)
         iterator = 1
@@ -47,7 +37,12 @@ class IfElse(object):
             del output[iterator + starting_index]
             original_body_length -= 1
 
+#TODO this function needs to be modified since not every class using it has this exact implementation
+#TODO in each class that uses Parent, indicate that it 
+# inherits from this class and change the implementation 
+# of the functions inheriting to utilize super() 
     def num_line(self, line= None):
+        @abstractmethod
         num_line = 0
         last_line = 0
         for token in self.actions:
@@ -58,5 +53,4 @@ class IfElse(object):
         if(self.variable_list):
             num_line += 1
         return num_line
-
 

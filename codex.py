@@ -25,7 +25,6 @@ command.create_new_project(["Desktop", "test2","disable"])
 #         command.create_new_project(home + "\\OneDrive\\Desktop\\test")
 #     else:
 #         command.create_new_project(home + "\\Desktop\\test")
-#I added a comment
 
 command.add_file("hello_world.c")
 command.add_include("stdio.h")
