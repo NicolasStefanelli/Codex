@@ -1,6 +1,6 @@
 """
-    Author:Jarvis Lu
-    Date: 2/27/2020
+    Author:Nicolas Stefanelli and Jarvis Liu
+    Date: 3/17/2020
 
     This file contains the IfElse class. This class can be used to implement 
 if else statements within the file.
@@ -8,8 +8,7 @@ if else statements within the file.
     TODO finish the IfElse class
 
 """
-
-class IfElse(object):
+class loops_and_conditionals_parent:
     def __init__(self):
         self.variable_list = []
         self.argument_list = []
@@ -24,13 +23,9 @@ class IfElse(object):
         return self.current_action
 
     def generate_output(self):
-        output = "if("
-        for token in self.argument_list:
-            output += token + " "
-        output += "){"
-        return output
+        pass
 
-    def return_moified_statement(self, output, starting_index, original_body_length):
+    def return_modified_statement(self, output, starting_index, original_body_length):
         self.body.append(self.generate_output())
         cur_body_len = len(self.body)
         iterator = 1
@@ -58,5 +53,18 @@ class IfElse(object):
         if(self.variable_list):
             num_line += 1
         return num_line
+        
+class If_Else(loops_and_conditionals_parent):
+    def __init__(self):
+        super().__init__()
+
+    def generate_output(self):
+        output = "if("
+        for token in self.argument_list:
+            output += token + " "
+        output += "){"
+        return output
+
+    
 
 

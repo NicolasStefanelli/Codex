@@ -10,7 +10,8 @@ or variables or includes etc
 
 from .import variable
 from .import calls
-from .import if_else
+from .import loops_and_conditionals
+
 
 """ 
     Initialization of the Function class
@@ -175,5 +176,8 @@ class Function(object):
         elif name == "variable":
             self.current_action = variable.Variable()
             self.variable_dict.update({value:self.current_action})
+        elif name == "if_else":
+            self.current_action = loops_and_conditionals.If_Else()
+            
         self.current_action.name = value
         self.tracker.append(self.current_action)
