@@ -54,14 +54,13 @@ class loops_and_conditionals_parent:
             num_line += 1
         return num_line
         
-class If_Else(loops_and_conditionals_parent):
+class If(loops_and_conditionals_parent):
     def __init__(self):
         super().__init__()
 
     def generate_output(self,output,indent_level):
         output = ""
         count_indents = 0
-        count_elifs = 0
         while(count_indents < indent_level):
             output += "\t"
             count_indents += 1
@@ -71,6 +70,24 @@ class If_Else(loops_and_conditionals_parent):
         output += "){"
         
         return output
+class Elif(loops_and_conditionals_parent):
+    def __init__(self):
+        super().__init__()
+    
+    def generate_output(self,output,indent_level):
+        output = ""
+        count_indents = 0
+        while(count_indents < indent_level):
+            output += "\t"
+            count_indents += 1
+        output += "else if("
+        for token in self.argument_list:
+            output += token + " "
+        output += "){"
+        
+        return output
+    
+    
 
     
 
