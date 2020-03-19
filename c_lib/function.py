@@ -176,8 +176,16 @@ class Function(object):
         elif name == "variable":
             self.current_action = variable.Variable()
             self.variable_dict.update({value:self.current_action})
-        elif name == "if_else":
-            self.current_action = loops_and_conditionals.If_Else()
-            
+        elif name == "if":
+            self.current_action = loops_and_conditionals.If()
+        elif name == "elif":
+            self.current_action = loops_and_conditionals.Elif()
+        elif name == "else":
+            self.current_action = loops_and_conditionals.Else()
+        elif name == "for":
+            self.current_action = loops_and_conditionals.For()
+        elif name == "do":
+            self.current_action = loops_and_conditionals.Do_while()
+
         self.current_action.name = value
         self.tracker.append(self.current_action)
