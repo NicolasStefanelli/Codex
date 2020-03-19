@@ -61,3 +61,6 @@ command.add_to_func_body("modify", "add", value= "\"one and one more\\n\"")
 command.add_to_func_body("modify", "add", line= 5, value="yes")
 time.sleep(1)
 command.add_include("string.h")
+
+#test for if else
+command.add_to_func_body("add","if_else")

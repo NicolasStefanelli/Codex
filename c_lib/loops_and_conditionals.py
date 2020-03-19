@@ -1,6 +1,6 @@
 """
-    Author:Jarvis Lu
-    Date: 2/27/2020
+    Author:Nicolas Stefanelli and Jarvis Liu
+    Date: 3/17/2020
 
     This file contains the IfElse class. This class can be used to implement 
 if else statements within the file.
@@ -8,8 +8,7 @@ if else statements within the file.
     TODO finish the IfElse class
 
 """
-
-class IfElse(object):
+class loops_and_conditionals_parent:
     def __init__(self):
         self.variable_list = []
         self.argument_list = []
@@ -24,11 +23,7 @@ class IfElse(object):
         return self.current_action
 
     def generate_output(self):
-        output = "if("
-        for token in self.argument_list:
-            output += token + " "
-        output += "){"
-        return output
+        pass
 
     def return_modified_statement(self, output, starting_index, original_body_length):
         self.body.append(self.generate_output())
@@ -58,5 +53,42 @@ class IfElse(object):
         if(self.variable_list):
             num_line += 1
         return num_line
+        
+class If(loops_and_conditionals_parent):
+    def __init__(self):
+        super().__init__()
+
+    def generate_output(self,output,indent_level):
+        output = ""
+        count_indents = 0
+        while(count_indents < indent_level):
+            output += "\t"
+            count_indents += 1
+        output += "if("
+        for token in self.argument_list:
+            output += token + " "
+        output += "){"
+        
+        return output
+class Elif(loops_and_conditionals_parent):
+    def __init__(self):
+        super().__init__()
+    
+    def generate_output(self,output,indent_level):
+        output = ""
+        count_indents = 0
+        while(count_indents < indent_level):
+            output += "\t"
+            count_indents += 1
+        output += "else if("
+        for token in self.argument_list:
+            output += token + " "
+        output += "){"
+        
+        return output
+    
+    
+
+    
 
 
