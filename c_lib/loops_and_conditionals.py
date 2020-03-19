@@ -70,6 +70,7 @@ class If(loops_and_conditionals_parent):
         output += "){"
         
         return output
+
 class Elif(loops_and_conditionals_parent):
     def __init__(self):
         super().__init__()
@@ -86,6 +87,81 @@ class Elif(loops_and_conditionals_parent):
         output += "){"
         
         return output
+
+class Else(loops_and_conditionals_parent):
+    def __init__(self):
+        super().__init__()
+
+    def generate_output(self,output,indent_level):
+        output = ""
+        count_indents = 0
+        while(count_indents < indent_level):
+            output += "\t"
+            count_indents += 1
+        output += "else{"
+        for token in self.argument_list:
+            output += token + " "
+        output += "}"
+
+        return output
+
+class While(loops_and_conditionals_parent):
+    def __init__(self):
+        super().__init__()
+    
+    def generate_output(self,output,indent_level):
+        output = ""
+        count_indents = 0
+        while(count_indents < indent_level):
+            output += "\t"
+            count_indents += 1
+        output += "while("
+        for token in self.argument_list:
+            output += token + " "
+        output += "){"
+        
+        return output
+
+class For(loops_and_conditionals_parent):
+    def __init__(self):
+        super().__init__()
+
+    def generate_output(self,output,indent_level):
+        output = ""
+        count_indents = 0
+        while(count_indents < indent_level):
+            output += "\t"
+            count_indents += 1
+        output += "for("
+        for token in self.argument_list:
+            # The ";" would have to be included in argument_list between the 3 parts the way this is set up
+            output += token + " "
+        output += "){"
+
+        return output
+
+
+    class Do_while(While):
+        def __init__(self):
+            super().__init__()
+
+        def generate_output(self,output,indent_level):
+            output = ""
+            count_indents = 0
+            while(count_indents < indent_level):
+                output += "\t"
+                count_indents += 1
+            output += "do{"
+            for token in self.argument_list:
+                output += token + " "
+            output += "}"
+
+            # argument_list only contains the arguments for the "do" part until 
+            # While's generate output is called
+            output += (While.__init__(self)).generate_output(self,output,indent_level)
+            output = output[:-1] # remove the un-needed "{"
+
+            return output
     
     
 

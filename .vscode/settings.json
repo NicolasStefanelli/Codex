@@ -2,5 +2,5 @@
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
     "git.ignoreLimitWarning": true,
-    "python.pythonPath": "D:\\Anaconda3\\python.exe"
+    "python.pythonPath": "C:\\Users\\rylee\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe"
 }
